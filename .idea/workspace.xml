@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="creacion de vuelos(casi) y aviones">
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aerolinea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aerolinea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/AerolineasPresentes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/AerolineasPresentes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aeropuerto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aeropuerto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Avion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Avion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AeropuertoRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AeropuertoRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/UsuarioRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/UsuarioRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/AeropuertoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/AeropuertoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/AvionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/AvionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/UsuarioService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="demo" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f39a6380-b1a2-4cd7-bb5f-f30637610a32" />
+        <option name="url" value="https://github.com/juanfegari/ProyectoTic.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HttpClientSelectedEnvironments">
+    <file url="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/get-requests.http" environment="test" />
+    <file url="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/post-requests.http" environment="test" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="2V4emjM3dJTSb71gMlXxywd9Jdu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Feder/OneDrive/Documentos/TicLocal/ProyectoTic-ServidorTIC/ProyectoTic-ServidorTIC&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;9de0862494cc3aa211be7c76dc6b547b&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;HTTP Request&quot;
+    ]
+  }
+}</component>
+  <component name="RunDashboard">
+    <option name="excludedTypes">
+      <set>
+        <option value="HttpClient.HttpRequestRunConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Main">
+    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ProyectoTic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ProyectoTic" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="demo.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="proyecto.Main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="proyecto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.generated-requests | #3" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="HTTP Request.All in generated-requests" />
+        <item itemvalue="Spring Boot.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="" />
+      <created>1694099951708</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694099951708</updated>
+      <workItem from="1698348783473" duration="5501000" />
+    </task>
+    <task id="LOCAL-00001" summary="log in">
+      <created>1694108233644</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694108233644</updated>
+    </task>
+    <task id="LOCAL-00002" summary="DBControler">
+      <created>1694108466094</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694108466094</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Sing IN button">
+      <created>1694110219120</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694110219120</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Sing in scene uno, falta hacer la verificaciones con la base de datos">
+      <created>1694111535820</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694111535820</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Sing in scene uno, falta hacer la verificaciones con la base de datos">
+      <created>1694111548231</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694111548231</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Creo las clases">
+      <created>1694112214068</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694112214068</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Creo las clases y sus atributos">
+      <created>1694113817654</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694113817654</updated>
+    </task>
+    <task id="LOCAL-00008" summary="emprolijar">
+      <created>1694131247938</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694131247938</updated>
+    </task>
+    <task id="LOCAL-00009" summary="emprolijar">
+      <created>1694699516619</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694699516619</updated>
+    </task>
+    <task id="LOCAL-00010" summary="emprolijar">
+      <created>1694702185884</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694702185884</updated>
+    </task>
+    <task id="LOCAL-00011" summary="nueva jerarquia">
+      <created>1694702299853</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694702299853</updated>
+    </task>
+    <task id="LOCAL-00012" summary="empleaso diferenciados">
+      <created>1694702782553</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1694702782553</updated>
+    </task>
+    <task id="LOCAL-00013" summary="empleados creacion, faltan resricciones">
+      <created>1694703680859</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694703680859</updated>
+    </task>
+    <task id="LOCAL-00014" summary="relacion pasajero - vuelo">
+      <created>1694706252895</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694706252895</updated>
+    </task>
+    <task id="LOCAL-00015" summary="relacion pasajero - vuelo">
+      <created>1694706908714</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694706908714</updated>
+    </task>
+    <task id="LOCAL-00016" summary="arreglos de la conexion a la base de datos, falta ver lo de las aerolineas presente">
+      <created>1694726558130</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1694726558130</updated>
+    </task>
+    <task id="LOCAL-00017" summary="e">
+      <created>1694726989444</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1694726989444</updated>
+    </task>
+    <task id="LOCAL-00018" summary="e2">
+      <created>1694728283269</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694728283269</updated>
+    </task>
+    <task id="LOCAL-00019" summary="e2">
+      <created>1694728310849</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1694728310849</updated>
+    </task>
+    <task id="LOCAL-00020" summary="agregacionDelSceneBuilder">
+      <created>1695240063347</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1695240063348</updated>
+    </task>
+    <task id="LOCAL-00021" summary="updateDelSceneBuilder">
+      <created>1695240281904</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1695240281904</updated>
+    </task>
+    <task id="LOCAL-00022" summary="updateDelSceneBuilder">
+      <created>1695241587003</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1695241587003</updated>
+    </task>
+    <task id="LOCAL-00023" summary="agregar cosas del seanBuilder">
+      <created>1695855889949</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1695855889949</updated>
+    </task>
+    <task id="LOCAL-00024" summary="agregar cosas del seanBuilder">
+      <created>1695855913878</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1695855913878</updated>
+    </task>
+    <task id="LOCAL-00025" summary="controlers para usuarios">
+      <created>1695856229451</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1695856229451</updated>
+    </task>
+    <task id="LOCAL-00026" summary="controlers para usuarios">
+      <created>1695856826814</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1695856826814</updated>
+    </task>
+    <task id="LOCAL-00027" summary="controlers para usuarios">
+      <created>1695856848463</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1695856848464</updated>
+    </task>
+    <task id="LOCAL-00028" summary="controlers para usuarios">
+      <created>1695860645863</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1695860645863</updated>
+    </task>
+    <task id="LOCAL-00029" summary="funcion de Log in, falta identificar el usuario">
+      <created>1695860676100</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1695860676100</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Repository, Service y Controller para Avion, Aerolinea y Vuelo">
+      <created>1695861781636</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1695861781636</updated>
+    </task>
+    <task id="LOCAL-00031" summary="registarAeropuerto">
+      <created>1695862517680</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1695862517680</updated>
+    </task>
+    <task id="LOCAL-00032" summary="agregar Aeropuerto, falta convercion de string a int">
+      <created>1695863333643</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1695863333643</updated>
+    </task>
+    <task id="LOCAL-00033" summary="agregar Aeropuerto, falta convercion de string a int">
+      <created>1695907416223</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1695907416223</updated>
+    </task>
+    <task id="LOCAL-00034" summary="vuelve a funcionarr">
+      <option name="closed" value="true" />
+      <created>1695912480015</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1695912480015</updated>
+    </task>
+    <task id="LOCAL-00035" summary="agregar usuarios con id y no repetir usernames">
+      <option name="closed" value="true" />
+      <created>1695913939240</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1695913939240</updated>
+    </task>
+    <task id="LOCAL-00036" summary="agregar usuarios con id y no repetir usernames">
+      <option name="closed" value="true" />
+      <created>1695914410914</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1695914410914</updated>
+    </task>
+    <task id="LOCAL-00037" summary="intento de cargar paginas">
+      <created>1695998449810</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1695998449810</updated>
+    </task>
+    <task id="LOCAL-00038" summary="intento de cargar paginas">
+      <created>1695998540626</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1695998540626</updated>
+    </task>
+    <task id="LOCAL-00039" summary="creacion de verificacion y algunos agregar">
+      <created>1696512588757</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1696512588757</updated>
+    </task>
+    <task id="LOCAL-00040" summary="cambios pedorros">
+      <created>1696516305091</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1696516305091</updated>
+    </task>
+    <task id="LOCAL-00041" summary="cambios">
+      <created>1696516879465</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1696516879465</updated>
+    </task>
+    <task id="LOCAL-00042" summary="cambios">
+      <created>1696516903632</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1696516903632</updated>
+    </task>
+    <task id="LOCAL-00043" summary="rest controller p1">
+      <option name="closed" value="true" />
+      <created>1697727024083</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1697727024083</updated>
+    </task>
+    <task id="LOCAL-00044" summary="avances API Usuario y Aeropuerto">
+      <created>1698183954866</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1698183954866</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="nueva jerarquia" />
+    <MESSAGE value="empleaso diferenciados" />
+    <MESSAGE value="empleados creacion, faltan resricciones" />
+    <MESSAGE value="relacion pasajero - vuelo" />
+    <MESSAGE value="arreglos de la conexion a la base de datos, falta ver lo de las aerolineas presente" />
+    <MESSAGE value="e" />
+    <MESSAGE value="e2" />
+    <MESSAGE value="agregacionDelSceneBuilder" />
+    <MESSAGE value="updateDelSceneBuilder" />
+    <MESSAGE value="prolijidad" />
+    <MESSAGE value="agregar cosas del seanBuilder" />
+    <MESSAGE value="controlers para usuarios" />
+    <MESSAGE value="funcion de Log in, falta identificar el usuario" />
+    <MESSAGE value="Repository, Service y Controller para Avion, Aerolinea y Vuelo" />
+    <MESSAGE value="registarAeropuerto" />
+    <MESSAGE value="agregar Aeropuerto, falta convercion de string a int" />
+    <MESSAGE value="vuelve a funcionarr" />
+    <MESSAGE value="agregar usuarios con id y no repetir usernames" />
+    <MESSAGE value="borrar repetidos de build" />
+    <MESSAGE value="intento de cargar paginas" />
+    <MESSAGE value="creacion de verificacion y algunos agregar" />
+    <MESSAGE value="cambios pedorros" />
+    <MESSAGE value="cambios" />
+    <MESSAGE value="rest controller p1" />
+    <MESSAGE value="avances API Usuario y Aeropuerto" />
+    <option name="LAST_COMMIT_MESSAGE" value="avances API Usuario y Aeropuerto" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

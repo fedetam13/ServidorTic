@@ -1,0 +1,636 @@
+Index: src/main/java/proyecto/Pepito.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package proyecto;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.geometry.Insets;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.layout.GridPane;\r\nimport javafx.stage.Stage;\r\nimport proyecto.ClasesMER.*;\r\n\r\npublic class Pepito extends Application {\r\n    Button botonDeLogIn,botondeSingIn,volverAlMenu,irARegistroDeUsuario,botonDeGuardar,siguienteSinInScene,salir;\r\n    Scene sceneInicio, sceneRegistoUsuario, sceneSingIn1, sceneSingIn2, scenePasajeroPrincipal, sceneAerolineaPrincipal,sceneAeropuertoPrincipal, saceneEmpresaPrincipal;\r\n    Stage prymaryStage;\r\n    TextField usuario;\r\n    GridPane gridRegistrarUsuario,gridInicio,gridSingIn,gridSingIn1, gridPasajeroPrincipal,gridAerolineaPrincipal, gridAeropuertoPrincipal, gridEmproesaPrincipal;\r\n    Label nombre,contrasenia;\r\n    PasswordField contraseniaInput;\r\n\r\n    @Override\r\n    public void start(Stage prymaryStage) throws Exception { // aca se escribe todo lo que querramos tener\r\n\r\n        // config de boton de Log in\r\n        botonDeGuardar = new Button();\r\n        botonDeGuardar.setText(\"Log in\");\r\n        GridPane.setConstraints(botonDeGuardar,1,2);\r\n        botonDeGuardar.setOnAction(e -> VentanaAlerta.Error(\"Usuario\",\"Se produjoo un error al querer entrar\"));\r\n\r\n        // config del boton de ir a Sing in\r\n        irARegistroDeUsuario = new Button(\"Sign in\");\r\n        botonDeLogIn = new Button();\r\n        botonDeLogIn.setText(\"Log in\");\r\n        GridPane.setConstraints(botonDeLogIn,2,0);\r\n        botonDeLogIn.setOnAction(e->{\r\n            if (usuario.getParent()!=gridRegistrarUsuario){\r\n                gridSingIn.getChildren().removeAll(nombre,usuario,contrasenia,contraseniaInput,volverAlMenu);\r\n                if (contrasenia.getParent()!=gridRegistrarUsuario){\r\n                    gridSingIn1.getChildren().removeAll(contrasenia,contraseniaInput,volverAlMenu);\r\n                }\r\n                gridRegistrarUsuario.getChildren().addAll(nombre,usuario,contrasenia,contraseniaInput,volverAlMenu);\r\n            }\r\n            prymaryStage.setScene(sceneRegistoUsuario);\r\n        });\r\n\r\n        // confi botonSingIn\r\n        botondeSingIn=new Button();\r\n        botondeSingIn.setText(\"Sing in\");\r\n        GridPane.setConstraints(botonDeLogIn,3,0);\r\n        botondeSingIn.setOnAction(e->{\r\n            if (usuario.getParent()!=gridSingIn){\r\n                gridRegistrarUsuario.getChildren().removeAll(nombre,usuario,contrasenia,contraseniaInput,volverAlMenu);\r\n                gridSingIn.getChildren().addAll(nombre,usuario,volverAlMenu);\r\n            }\r\n            prymaryStage.setScene(sceneSingIn1);\r\n        });\r\n\r\n\r\n        // confg gridRegistrar usuarios\r\n        gridRegistrarUsuario = new GridPane();\r\n        gridRegistrarUsuario.setPadding(new Insets(10,10,10,10));\r\n        gridRegistrarUsuario.setHgap(8);\r\n        gridRegistrarUsuario.setVgap(10);\r\n\r\n        // config grid inicio\r\n        gridInicio = new GridPane();\r\n        gridInicio.setPadding(new Insets(10,10,10,10));\r\n        gridInicio.setHgap(8);\r\n        gridInicio.setVgap(10);\r\n\r\n\r\n        //labela\r\n        nombre = new Label(\"Ususario:\");\r\n        GridPane.setConstraints(nombre,0,0);\r\n        contrasenia = new Label(\"Contrasenia:\");\r\n        GridPane.setConstraints(contrasenia,0,1);\r\n\r\n        //Lugar para escribir\r\n        usuario = new TextField();\r\n        usuario.setPromptText(\"usuario\");\r\n        GridPane.setConstraints(usuario,1,0);\r\n        contraseniaInput = new PasswordField();\r\n        contraseniaInput.setPromptText(\"contrasenia\");\r\n        GridPane.setConstraints(contraseniaInput,1,1);\r\n\r\n        // config boton de vuelva\r\n        volverAlMenu = new Button(\"Volver al inicio\");\r\n        volverAlMenu.setOnAction(e-> prymaryStage.setScene(sceneInicio));\r\n        GridPane.setConstraints(volverAlMenu,2,3);\r\n        gridInicio.getChildren().addAll(botonDeLogIn,botondeSingIn);\r\n        sceneInicio = new Scene(gridInicio,350,200);\r\n\r\n        // agregar todo a la grila de log in\r\n        gridRegistrarUsuario.getChildren().addAll(nombre,usuario,contrasenia,contraseniaInput,botonDeGuardar,volverAlMenu);\r\n        sceneRegistoUsuario = new Scene(gridRegistrarUsuario, 400,400);\r\n\r\n        // Crear usuario\r\n        siguienteSinInScene=new Button();\r\n        siguienteSinInScene.setText(\"siguiente\");\r\n        GridPane.setConstraints(siguienteSinInScene,1,3);\r\n        siguienteSinInScene.setOnAction(e->{\r\n                /*if vericicacion(usuario)== true{\r\n                    prymaryStage.setScene(sceneSingIn2);\r\n                }*/\r\n        });\r\n        Label nombreReal = new Label(\"Nombre completo:\");\r\n        GridPane.setConstraints(nombreReal,0,0);\r\n        TextField nombreRea = new TextField();\r\n        nombreRea.setPromptText(\"nombre\");\r\n        GridPane.setConstraints(nombreRea,1,0);\r\n        Label contrasenia1 = new Label(\"Repetir contrasenia:\");\r\n        GridPane.setConstraints(contrasenia,0,2);\r\n        PasswordField contraseniaInput1 = new PasswordField();\r\n        contraseniaInput.setPromptText(\"contrasenia\");\r\n        GridPane.setConstraints(contraseniaInput,1,2);\r\n        // scene de sing in\r\n        gridSingIn = new GridPane();\r\n        gridSingIn.setPadding(new Insets(10,10,10,10));\r\n        gridSingIn.setHgap(8);\r\n        gridSingIn.setVgap(10);\r\n        gridSingIn.getChildren().addAll(nombre,usuario,volverAlMenu,siguienteSinInScene);\r\n        sceneSingIn1 = new Scene(gridSingIn,300,200);\r\n        gridSingIn1 = new GridPane();\r\n        gridSingIn1.setPadding(new Insets(10,10,10,10));\r\n        gridSingIn1.setHgap(8);\r\n        gridSingIn1.setVgap(10);\r\n        gridSingIn1.getChildren().addAll(nombreReal,nombreRea,contrasenia,contraseniaInput,contrasenia1,contraseniaInput1);\r\n        sceneSingIn2 = new Scene(gridSingIn1,300,200);\r\n\r\n        //\r\n        salir = new Button(\"cerrar programa\");\r\n        salir.setOnAction(e->cerrarPrograma());\r\n\r\n\r\n        // config de la primera scene\r\n        prymaryStage.setScene(sceneInicio);\r\n        prymaryStage.setTitle(\"Proyecto TIC, StandAlone\");\r\n        prymaryStage.setOnCloseRequest(e-> {\r\n            e.consume();\r\n            cerrarPrograma();\r\n        });\r\n\r\n        //PAGINA PASSAJEROS\r\n        /*\r\n        scenePasajeroPrincipal\r\n        gridPasajeroPrincipal\r\n        */\r\n\r\n        //PAGINA AEROLINEA\r\n        /*\r\n        sceneAerolineaPrincipal\r\n        gridAerolineaPrincipal\r\n        */\r\n\r\n        //PAGINA AEROPUERTO\r\n        /*\r\n        sceneAeropuertoPrincipal\r\n        gridAeropuertoPrincipal\r\n        */\r\n\r\n        //PAGINA EMPRESA\r\n        /*\r\n        gridEmproesaPrincipal\r\n        gridEmproesaPrincipal\r\n        */\r\n\r\n\r\n\r\n        prymaryStage.show();\r\n    }\r\n\r\n    private void cerrarPrograma(){\r\n        boolean respuesta = VentanaConfirmacion.confirmacion(\"Salir\",\"Estas seguro de que quiere salir\");\r\n        if (respuesta) {\r\n            prymaryStage.close();\r\n        }\r\n    }\r\n\r\n    private boolean isInt (TextField input){\r\n        try {\r\n            int num= Integer.parseInt(input.getText());\r\n            return true;\r\n        } catch (NumberFormatException e){\r\n            System.out.println(\"No son numeros\");\r\n            return false;\r\n        }\r\n    }\r\n    /*\r\n    private boolean VerificacionUsuarioExistente(TextField usuario, TextField password){\r\n        Usuarios usuarioABuscar = usuario.getText();\r\n        if Usuarios.get\r\n    }*/\r\n    /*\r\n    private boolean verificacionUsuarioNoExistente(TextField usuario){\r\n        hay que buscar el usuario en la base de datos\r\n    }\r\n     */\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/Pepito.java b/src/main/java/proyecto/Pepito.java
+--- a/src/main/java/proyecto/Pepito.java	(revision 702505c622a1648474e28a8a96aefd6a09781bd2)
++++ b/src/main/java/proyecto/Pepito.java	(date 1695908019323)
+@@ -9,7 +9,6 @@
+ import javafx.scene.control.TextField;
+ import javafx.scene.layout.GridPane;
+ import javafx.stage.Stage;
+-import proyecto.ClasesMER.*;
+ 
+ public class Pepito extends Application {
+     Button botonDeLogIn,botondeSingIn,volverAlMenu,irARegistroDeUsuario,botonDeGuardar,siguienteSinInScene,salir;
+Index: src/main/java/proyecto/ClasesMER/Vuelo/VueloController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package proyecto.ClasesMER.Vuelo;\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.TextField;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Service;\r\n\r\n@Service\r\npublic class VueloController {\r\n    @Autowired\r\n    private VueloRepository vueloRepository;\r\n\r\n    @FXML\r\n    private TextField textFieldRegistrarVuelo_horaDePartida;\r\n\r\n    @FXML\r\n    private TextField textFieldRegistrarVuelo_AeropuertoDeLlegada;\r\n\r\n    @FXML\r\n    private TextField textFieldRegistrarVuelo_puertaDeDesembarque;\r\n\r\n    @FXML\r\n    private TextField textFieldRegistrarVuelo_HoraDeLlegada;\r\n\r\n    @FXML\r\n    private TextField textFieldRegistrarVuelo_Avion;\r\n\r\n    @FXML\r\n    private TextField textfieldRegistrarVuelo_AeropueroDePartida;\r\n\r\n    @FXML\r\n    private TextField textFieldRegistrarVuelo_puertaDeEmbarque;\r\n    public void agregarVuelo(){\r\n        Vuelo v = new Vuelo();\r\n        v.setAerolinea();\r\n        v.setAvion(textFieldRegistrarVuelo_Avion.getText());// hay que encontar el avion\r\n        v.setAeropuertoArribo(textFieldRegistrarVuelo_AeropuertoDeLlegada.getText());\r\n        v.setAeropuertoPartida(textfieldRegistrarVuelo_AeropueroDePartida.getText());\r\n        v.setHoraDeArribo(textFieldRegistrarVuelo_HoraDeLlegada.getText());\r\n        v.setHoraDePartida(textFieldRegistrarVuelo_horaDePartida.getText());\r\n        v.setPueretaDeEmbarque(Integer.parseInt(textFieldRegistrarVuelo_puertaDeEmbarque.getText()));\r\n        v.getPuertaDeArribo(Integer.parseInt(textFieldRegistrarVuelo_puertaDeDesembarque.getText())):\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Vuelo/VueloController.java b/src/main/java/proyecto/ClasesMER/Vuelo/VueloController.java
+--- a/src/main/java/proyecto/ClasesMER/Vuelo/VueloController.java	(revision 702505c622a1648474e28a8a96aefd6a09781bd2)
++++ b/src/main/java/proyecto/ClasesMER/Vuelo/VueloController.java	(date 1695907979014)
+@@ -39,6 +39,6 @@
+         v.setHoraDeArribo(textFieldRegistrarVuelo_HoraDeLlegada.getText());
+         v.setHoraDePartida(textFieldRegistrarVuelo_horaDePartida.getText());
+         v.setPueretaDeEmbarque(Integer.parseInt(textFieldRegistrarVuelo_puertaDeEmbarque.getText()));
+-        v.getPuertaDeArribo(Integer.parseInt(textFieldRegistrarVuelo_puertaDeDesembarque.getText())):
++        v.getPuertaDeArribo(Integer.parseInt(textFieldRegistrarVuelo_puertaDeDesembarque.getText()));
+     }
+ }
+Index: src/main/java/proyecto/ClasesMER/Vuelo/VueloService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package proyecto.ClasesMER.Vuelo;\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\nimport lombok.AllArgsConstructor;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Controller;\r\nimport proyecto.ClasesMER.Usuarios.Usuario;\r\n\r\n@Controller\r\npublic class VueloService {\r\n    @Autowired\r\n    private VueloRepository vueloRepository;\r\n\r\n    public boolean agregarVuelo(Vuelo v) {\r\n        if (//checkeos de posibilidad) {\r\n            vueloRepository.save(v);\r\n            return true;\r\n        }\r\n        return false;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Vuelo/VueloService.java b/src/main/java/proyecto/ClasesMER/Vuelo/VueloService.java
+--- a/src/main/java/proyecto/ClasesMER/Vuelo/VueloService.java	(revision 702505c622a1648474e28a8a96aefd6a09781bd2)
++++ b/src/main/java/proyecto/ClasesMER/Vuelo/VueloService.java	(date 1695908007293)
+@@ -14,7 +14,7 @@
+     private VueloRepository vueloRepository;
+ 
+     public boolean agregarVuelo(Vuelo v) {
+-        if (//checkeos de posibilidad) {
++        if (true){//checkeos de posibilidad) {
+             vueloRepository.save(v);
+             return true;
+         }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"17109fb2-6b65-4b68-b4dd-57fadcb50b88\" name=\"Changes\" comment=\"agregar Aeropuerto, falta convercion de string a int\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Aeropuerto/AeropuertoController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Aeropuerto/AeropuertoController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Vuelo/VueloController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Vuelo/VueloController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Vuelo/VueloService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Vuelo/VueloService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/proyecto/RegistarAeropuerto.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/proyecto/RegistarAeropuerto.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/proyecto/RegistarVuelo.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/proyecto/RegistarVuelo.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand />\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaFXApplication\" />\r\n        <option value=\"Class\" />\r\n        <option value=\"Interface\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"f39a6380-b1a2-4cd7-bb5f-f30637610a32\" />\r\n        <option name=\"url\" value=\"https://github.com/juanfegari/ProyectoTic.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"ProjectErrors\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2V4emjM3dJTSb71gMlXxywd9Jdu\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/juanfe/TIC/ProyectoAeropuerto/ProyectoTic-master&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <module name=\"ProyectoTic\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <module name=\"ProyectoTic\" />\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"17109fb2-6b65-4b68-b4dd-57fadcb50b88\" name=\"Changes\" comment=\"\" />\r\n      <created>1694099951708</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1694099951708</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"log in\">\r\n      <created>1694108233644</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694108233644</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"DBControler\">\r\n      <created>1694108466094</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694108466094</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Sing IN button\">\r\n      <created>1694110219120</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694110219120</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Sing in scene uno, falta hacer la verificaciones con la base de datos\">\r\n      <created>1694111535820</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694111535820</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Sing in scene uno, falta hacer la verificaciones con la base de datos\">\r\n      <created>1694111548231</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694111548231</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Creo las clases\">\r\n      <created>1694112214068</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694112214068</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Creo las clases y sus atributos\">\r\n      <created>1694113817654</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694113817654</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"emprolijar\">\r\n      <created>1694131247938</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694131247938</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"emprolijar\">\r\n      <created>1694699516619</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694699516619</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"emprolijar\">\r\n      <created>1694702185884</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694702185884</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"nueva jerarquia\">\r\n      <created>1694702299853</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694702299853</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"empleaso diferenciados\">\r\n      <created>1694702782553</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694702782553</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"empleados creacion, faltan resricciones\">\r\n      <created>1694703680859</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694703680859</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"relacion pasajero - vuelo\">\r\n      <created>1694706252895</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694706252895</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"relacion pasajero - vuelo\">\r\n      <created>1694706908714</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694706908714</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"arreglos de la conexion a la base de datos, falta ver lo de las aerolineas presente\">\r\n      <created>1694726558130</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694726558130</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"e\">\r\n      <created>1694726989444</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694726989444</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"e2\">\r\n      <created>1694728283269</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694728283269</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"e2\">\r\n      <created>1694728310849</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1694728310849</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"agregacionDelSceneBuilder\">\r\n      <created>1695240063347</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695240063348</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"updateDelSceneBuilder\">\r\n      <created>1695240281904</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695240281904</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"updateDelSceneBuilder\">\r\n      <created>1695241587003</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695241587003</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"agregar cosas del seanBuilder\">\r\n      <created>1695855889949</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695855889949</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"agregar cosas del seanBuilder\">\r\n      <created>1695855913878</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695855913878</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"controlers para usuarios\">\r\n      <created>1695856229451</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695856229451</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"controlers para usuarios\">\r\n      <created>1695856826814</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695856826814</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"controlers para usuarios\">\r\n      <created>1695856848463</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695856848464</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"controlers para usuarios\">\r\n      <created>1695860645863</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695860645863</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"funcion de Log in, falta identificar el usuario\">\r\n      <created>1695860676100</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695860676100</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"Repository, Service y Controller para Avion, Aerolinea y Vuelo\">\r\n      <created>1695861781636</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695861781636</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"registarAeropuerto\">\r\n      <created>1695862517680</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695862517680</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"agregar Aeropuerto, falta convercion de string a int\">\r\n      <created>1695863333643</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695863333643</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"33\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\r\n                <map>\r\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\r\n                </map>\r\n              </option>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"main\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"log in\" />\r\n    <MESSAGE value=\"DBControler\" />\r\n    <MESSAGE value=\"Sing IN button\" />\r\n    <MESSAGE value=\"Sing in scene uno, falta hacer la verificaciones con la base de datos\" />\r\n    <MESSAGE value=\"Creo las clases\" />\r\n    <MESSAGE value=\"Creo las clases y sus atributos\" />\r\n    <MESSAGE value=\"emprolijar\" />\r\n    <MESSAGE value=\"nueva jerarquia\" />\r\n    <MESSAGE value=\"empleaso diferenciados\" />\r\n    <MESSAGE value=\"empleados creacion, faltan resricciones\" />\r\n    <MESSAGE value=\"relacion pasajero - vuelo\" />\r\n    <MESSAGE value=\"arreglos de la conexion a la base de datos, falta ver lo de las aerolineas presente\" />\r\n    <MESSAGE value=\"e\" />\r\n    <MESSAGE value=\"e2\" />\r\n    <MESSAGE value=\"agregacionDelSceneBuilder\" />\r\n    <MESSAGE value=\"updateDelSceneBuilder\" />\r\n    <MESSAGE value=\"prolijidad\" />\r\n    <MESSAGE value=\"agregar cosas del seanBuilder\" />\r\n    <MESSAGE value=\"controlers para usuarios\" />\r\n    <MESSAGE value=\"funcion de Log in, falta identificar el usuario\" />\r\n    <MESSAGE value=\"Repository, Service y Controller para Avion, Aerolinea y Vuelo\" />\r\n    <MESSAGE value=\"registarAeropuerto\" />\r\n    <MESSAGE value=\"agregar Aeropuerto, falta convercion de string a int\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"agregar Aeropuerto, falta convercion de string a int\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 702505c622a1648474e28a8a96aefd6a09781bd2)
++++ b/.idea/workspace.xml	(date 1695908096099)
+@@ -4,13 +4,44 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="agregar Aeropuerto, falta convercion de string a int">
++    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="registarAeropuerto">
++      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/checksums/checksums.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2023_17_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2023_17_00__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_09_2023_10_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_09_2023_10_28__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Aeropuerto/AeropuertoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Aeropuerto/AeropuertoController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Base de Datos/pruebita.log" beforeDir="false" afterPath="$PROJECT_DIR$/Base de Datos/pruebita.log" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Base de Datos/pruebita.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Base de Datos/pruebita.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Base de Datos/pruebita.script" beforeDir="false" afterPath="$PROJECT_DIR$/Base de Datos/pruebita.script" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Aerolinea/Aerolinea.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Aerolinea/Aerolinea.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/AerolineasPresentes.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Aeropuerto/Aeropuerto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Aeropuerto/Aeropuerto.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Aeropuerto/AeropuertoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Aeropuerto/AeropuertoController.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/EmpAerolinea.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/EmpAeropuerto.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/EmpEmpresa.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Empresa.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Pasaje.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Pasajeros.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Sucursal.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Usuarios.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/ClasesMER/Vuelos.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/DB.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/DBController.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Main.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Pepito.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/VentanaAlerta.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/VentanaConfirmacion.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Vuelo/VueloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Vuelo/VueloController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Vuelo/VueloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/ClasesMER/Vuelo/VueloService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/RegistarAeropuerto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/RegistarAeropuerto.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/RegistarVuelo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/RegistarVuelo.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Pepito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Pepito.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -66,26 +97,39 @@
+     <option name="selectedTabId" value="ProjectErrors" />
+   </component>
+   <component name="ProjectId" id="2V4emjM3dJTSb71gMlXxywd9Jdu" />
+-  <component name="ProjectLevelVcsManager">
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+     <ConfirmationsSetting value="2" id="Add" />
+   </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/juanfe/TIC/ProyectoAeropuerto/ProyectoTic-master&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "last_opened_file_path": "C:/Users/Usuario/Desktop/juanfe/TIC/ProyectoAeropuerto/ProyectoTic-master",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager">
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="proyecto.Main" />
++      <module name="demo.main" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="proyecto.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration default="true" type="JetRunConfigurationType">
+       <module name="ProyectoTic" />
+       <method v="2">
+@@ -99,6 +143,11 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.Main" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -326,14 +375,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1695862517680</updated>
+     </task>
+-    <task id="LOCAL-00032" summary="agregar Aeropuerto, falta convercion de string a int">
+-      <created>1695863333643</created>
+-      <option name="number" value="00032" />
+-      <option name="presentableId" value="LOCAL-00032" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1695863333643</updated>
+-    </task>
+-    <option name="localTasksCounter" value="33" />
++    <option name="localTasksCounter" value="32" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -387,8 +429,7 @@
+     <MESSAGE value="funcion de Log in, falta identificar el usuario" />
+     <MESSAGE value="Repository, Service y Controller para Avion, Aerolinea y Vuelo" />
+     <MESSAGE value="registarAeropuerto" />
+-    <MESSAGE value="agregar Aeropuerto, falta convercion de string a int" />
+-    <option name="LAST_COMMIT_MESSAGE" value="agregar Aeropuerto, falta convercion de string a int" />
++    <option name="LAST_COMMIT_MESSAGE" value="registarAeropuerto" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+Index: Base de Datos/pruebita.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#HSQL Database Engine 2.7.2\r\n#Sun Sep 10 20:43:50 UYT 2023\r\nmodified=yes\r\ntx_timestamp=159\r\nversion=2.7.2\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/Base de Datos/pruebita.properties b/Base de Datos/pruebita.properties
+--- a/Base de Datos/pruebita.properties	(revision 702505c622a1648474e28a8a96aefd6a09781bd2)
++++ b/Base de Datos/pruebita.properties	(date 1695907909094)
+@@ -1,5 +1,5 @@
+ #HSQL Database Engine 2.7.2
+-#Sun Sep 10 20:43:50 UYT 2023
+-modified=yes
+-tx_timestamp=159
++#Thu Sep 28 10:31:49 UYT 2023
++modified=no
++tx_timestamp=460
+ version=2.7.2
+Index: Base de Datos/pruebita.script
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>SET DATABASE UNIQUE NAME HSQLDB8A2844B1C4\r\nSET DATABASE DEFAULT RESULT MEMORY ROWS 0\r\nSET DATABASE EVENT LOG LEVEL 0\r\nSET DATABASE TRANSACTION CONTROL LOCKS\r\nSET DATABASE DEFAULT ISOLATION LEVEL READ COMMITTED\r\nSET DATABASE TRANSACTION ROLLBACK ON CONFLICT TRUE\r\nSET DATABASE TEXT TABLE DEFAULTS ''\r\nSET DATABASE SQL NAMES FALSE\r\nSET DATABASE SQL RESTRICT EXEC FALSE\r\nSET DATABASE SQL REFERENCES FALSE\r\nSET DATABASE SQL SIZE TRUE\r\nSET DATABASE SQL TYPES FALSE\r\nSET DATABASE SQL TDC DELETE TRUE\r\nSET DATABASE SQL TDC UPDATE TRUE\r\nSET DATABASE SQL SYS INDEX NAMES TRUE\r\nSET DATABASE SQL CONCAT NULLS TRUE\r\nSET DATABASE SQL UNIQUE NULLS TRUE\r\nSET DATABASE SQL CONVERT TRUNCATE TRUE\r\nSET DATABASE SQL AVG SCALE 0\r\nSET DATABASE SQL DOUBLE NAN TRUE\r\nSET FILES WRITE DELAY 500 MILLIS\r\nSET FILES BACKUP INCREMENT TRUE\r\nSET FILES CACHE SIZE 10000\r\nSET FILES CACHE ROWS 50000\r\nSET FILES SCALE 32\r\nSET FILES LOB SCALE 32\r\nSET FILES DEFRAG 0\r\nSET FILES NIO TRUE\r\nSET FILES NIO SIZE 256\r\nSET FILES LOG TRUE\r\nSET FILES LOG SIZE 50\r\nSET FILES CHECK 159\r\nSET DATABASE COLLATION \"SQL_TEXT\" PAD SPACE\r\nCREATE USER SA PASSWORD DIGEST 'd41d8cd98f00b204e9800998ecf8427e'\r\nALTER USER SA SET LOCAL TRUE\r\nCREATE SCHEMA PUBLIC AUTHORIZATION DBA\r\nCREATE MEMORY TABLE PUBLIC.PERSONA(NOMBRE VARCHAR(20),APELLIDO VARCHAR(20),CEDULA INTEGER)\r\nALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 1\r\nSET DATABASE DEFAULT INITIAL SCHEMA PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.CARDINAL_NUMBER TO PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.YES_OR_NO TO PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.CHARACTER_DATA TO PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.SQL_IDENTIFIER TO PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.TIME_STAMP TO PUBLIC\r\nGRANT DBA TO SA\r\nSET SCHEMA SYSTEM_LOBS\r\nINSERT INTO BLOCKS VALUES(0,2147483647,0)\r\nSET SCHEMA PUBLIC\r\nINSERT INTO PERSONA VALUES('Federico','Tambler',53614377)\r\nINSERT INTO PERSONA VALUES('Guzman','Vilche',6969)\r\nINSERT INTO PERSONA VALUES('Juan Felix','Gari',420420)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Base de Datos/pruebita.script b/Base de Datos/pruebita.script
+--- a/Base de Datos/pruebita.script	(revision 702505c622a1648474e28a8a96aefd6a09781bd2)
++++ b/Base de Datos/pruebita.script	(date 1695907909067)
+@@ -29,12 +29,13 @@
+ SET FILES NIO SIZE 256
+ SET FILES LOG TRUE
+ SET FILES LOG SIZE 50
+-SET FILES CHECK 159
++SET FILES CHECK 460
+ SET DATABASE COLLATION "SQL_TEXT" PAD SPACE
+ CREATE USER SA PASSWORD DIGEST 'd41d8cd98f00b204e9800998ecf8427e'
+ ALTER USER SA SET LOCAL TRUE
+ CREATE SCHEMA PUBLIC AUTHORIZATION DBA
+-CREATE MEMORY TABLE PUBLIC.PERSONA(NOMBRE VARCHAR(20),APELLIDO VARCHAR(20),CEDULA INTEGER)
++CREATE MEMORY TABLE PUBLIC.AEROPUERTO(CANTIDAD_DE_CHECKIN INTEGER NOT NULL,CANTIDAD_DE_PISTAS INTEGER NOT NULL,CANTIDAD_DE_PUERTAS INTEGER NOT NULL,ID_AEROPUERTO INTEGER NOT NULL PRIMARY KEY,NOMBRE VARCHAR(255),UBICACION VARCHAR(255))
++CREATE MEMORY TABLE PUBLIC.SERVICIO(CAPACIDAD INTEGER NOT NULL,COSTO INTEGER NOT NULL,ID_AEROPUERTO INTEGER NOT NULL,NOMBRE VARCHAR(255) NOT NULL PRIMARY KEY)
+ ALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 1
+ SET DATABASE DEFAULT INITIAL SCHEMA PUBLIC
+ GRANT USAGE ON DOMAIN INFORMATION_SCHEMA.CARDINAL_NUMBER TO PUBLIC
+@@ -45,7 +46,3 @@
+ GRANT DBA TO SA
+ SET SCHEMA SYSTEM_LOBS
+ INSERT INTO BLOCKS VALUES(0,2147483647,0)
+-SET SCHEMA PUBLIC
+-INSERT INTO PERSONA VALUES('Federico','Tambler',53614377)
+-INSERT INTO PERSONA VALUES('Guzman','Vilche',6969)
+-INSERT INTO PERSONA VALUES('Juan Felix','Gari',420420)
+Index: Base de Datos/pruebita.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*C3*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n/*C13*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C14*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C15*/SET SCHEMA PUBLIC\r\nDROP TABLE PUBLIC.PUBLIC.PERSONA\r\nDROP TABLE PUBLIC.PUBLIC.AEROPUERTO\r\n/*C12*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C11*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C7*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C9*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C6*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C10*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C8*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C5*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C3*/DISCONNECT\r\n/*C4*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C17*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\nDISCONNECT\r\n/*C19*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C18*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C20*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C23*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C21*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C22*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C24*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C25*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C26*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C27*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubi_cacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n/*C31*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C32*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C27*/DISCONNECT\r\n/*C29*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C28*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C30*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C34*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C33*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C35*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C36*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C37*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\nDISCONNECT\r\n/*C43*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C39*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C38*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C41*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C44*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C40*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C46*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C42*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C45*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C47*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \\u000d\\u000a       foreign key (id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n/*C49*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C47*/DISCONNECT\r\n/*C54*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C50*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C53*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C48*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C51*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C52*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C56*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C55*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C57*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto_id_aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \\u000d\\u000a       foreign key (aeropuerto_id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n/*C60*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C61*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C64*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C62*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C58*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C57*/DISCONNECT\r\n/*C59*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C63*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C65*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C66*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C67*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C68*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C69*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C70*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (aeropuerto, nombre)\\u000d\\u000a    )\r\n/*C74*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C70*/DISCONNECT\r\n/*C72*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C71*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C76*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C75*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C73*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C77*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C78*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C79*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C80*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \\u000d\\u000a       foreign key (id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n/*C84*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C80*/DISCONNECT\r\n/*C81*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C87*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C86*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C89*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C82*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C83*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C88*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C85*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C90*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto_id_aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \\u000d\\u000a       foreign key (aeropuerto_id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\nDISCONNECT\r\n/*C91*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C93*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C94*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C92*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C99*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C98*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C95*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C97*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C96*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C100*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto_id_aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \\u000d\\u000a       foreign key (aeropuerto_id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\nDISCONNECT\r\n/*C101*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C102*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C103*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C104*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C105*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C106*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C107*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C108*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C109*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C110*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C111*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C112*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C113*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto_id_aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        primary key (aeropuerto_id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \\u000d\\u000a       foreign key (aeropuerto_id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\nDISCONNECT\r\n/*C114*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C115*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C116*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C117*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C118*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C119*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C120*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C121*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C122*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C123*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C124*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C125*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C126*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\nDISCONNECT\r\n/*C127*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C128*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C129*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C130*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C131*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C132*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C133*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C134*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C135*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C136*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\nDISCONNECT\r\n/*C137*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C138*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C139*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C140*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C141*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C142*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C143*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C144*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C145*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C146*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (nombre)\\u000d\\u000a    )\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Base de Datos/pruebita.log b/Base de Datos/pruebita.log
+--- a/Base de Datos/pruebita.log	(revision 702505c622a1648474e28a8a96aefd6a09781bd2)
++++ b/Base de Datos/pruebita.log	(date 1695907909098)
+@@ -1,350 +1,0 @@
+-/*C3*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-/*C13*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C14*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C15*/SET SCHEMA PUBLIC
+-DROP TABLE PUBLIC.PUBLIC.PERSONA
+-DROP TABLE PUBLIC.PUBLIC.AEROPUERTO
+-/*C12*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C11*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C7*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C9*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C6*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C10*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C8*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C5*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C3*/DISCONNECT
+-/*C4*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C17*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-DISCONNECT
+-/*C19*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C18*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C20*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C23*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C21*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C22*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C24*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C25*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C26*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C27*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubi_cacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-/*C31*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C32*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C27*/DISCONNECT
+-/*C29*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C28*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C30*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C34*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C33*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C35*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C36*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C37*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
+-DISCONNECT
+-/*C43*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C39*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C38*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C41*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C44*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C40*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C46*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C42*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C45*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C47*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
+-/*C49*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C47*/DISCONNECT
+-/*C54*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C50*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C53*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C48*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C51*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C52*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C56*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C55*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C57*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto_id_aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \u000d\u000a       foreign key (aeropuerto_id_aeropuerto) \u000d\u000a       references aeropuerto
+-/*C60*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C61*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C64*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C62*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C58*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C57*/DISCONNECT
+-/*C59*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C63*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C65*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C66*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C67*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C68*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C69*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C70*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (aeropuerto, nombre)\u000d\u000a    )
+-/*C74*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C70*/DISCONNECT
+-/*C72*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C71*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C76*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C75*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C73*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C77*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C78*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C79*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C80*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
+-/*C84*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C80*/DISCONNECT
+-/*C81*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C87*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C86*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C89*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C82*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C83*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C88*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C85*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C90*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto_id_aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \u000d\u000a       foreign key (aeropuerto_id_aeropuerto) \u000d\u000a       references aeropuerto
+-DISCONNECT
+-/*C91*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C93*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C94*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C92*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C99*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C98*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C95*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C97*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C96*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C100*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto_id_aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \u000d\u000a       foreign key (aeropuerto_id_aeropuerto) \u000d\u000a       references aeropuerto
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-DISCONNECT
+-/*C101*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C102*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C103*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C104*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C105*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C106*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C107*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C108*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C109*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C110*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C111*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C112*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C113*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto_id_aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (aeropuerto_id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \u000d\u000a       foreign key (aeropuerto_id_aeropuerto) \u000d\u000a       references aeropuerto
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-DISCONNECT
+-/*C114*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C115*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C116*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C117*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C118*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C119*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C120*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C121*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C122*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C123*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C124*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C125*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C126*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-DISCONNECT
+-/*C127*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C128*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C129*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C130*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C131*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C132*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C133*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C134*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C135*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C136*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-DISCONNECT
+-/*C137*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C138*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C139*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C140*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C141*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C142*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C143*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C144*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C145*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C146*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"corretto-17\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 702505c622a1648474e28a8a96aefd6a09781bd2)
++++ b/.idea/misc.xml	(date 1695908096109)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="corretto-17" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
