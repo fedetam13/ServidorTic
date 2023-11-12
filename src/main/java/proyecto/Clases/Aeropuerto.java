@@ -21,8 +21,10 @@ import java.util.List;
 public class Aeropuerto {
     @Id
     private int idAeropuerto;
+    @Column(unique = true)
     private String nombre;
     private String ubicacion;
+    @Column(unique = true)
     private String iata;
     private int cantidadDePuertas;
     private int cantidadDePistas;

@@ -26,8 +26,8 @@ public class Vuelo {
     private int pueretaDeEmbarque;
     private int puertaDeArribo;
     private String aprovacionDeVuelo; //LA IDEA QUE SEA, Pendiente, Aprovado, Rechazado
-    private boolean aprovacionPartida;
-    private boolean aprovacionArribo;
+    private String aprovacionPartida; // (-,A,R)
+    private String aprovacionArribo; // (-,A,R)
 
 
     private int idAeropuertoPartida;

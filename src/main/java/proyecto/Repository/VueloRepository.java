@@ -14,5 +14,9 @@ public interface VueloRepository extends JpaRepository<Vuelo,Integer>{
     @Query("SELECT MAX(v.idVuelo) FROM Vuelo v")
     Integer maxId();
 
-    List<Vuelo> getVuelosByIdAeropuertoArriboOrIdAeropuertoPartida(int a,int p);
+    List<Vuelo> getVuelosByAprovacionArriboAndIdAeropuertoArribo(String ap, int id);
+    List<Vuelo> getVuelosByAprovacionPartidaAndIdAeropuertoPartida(String ap, int id);
+
+    Vuelo getVueloByIdVuelo(int id);
+
 }
