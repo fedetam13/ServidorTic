@@ -25,6 +25,15 @@ public class UsuarioService {
         return false;
     }
 
+    public boolean hayAdmin() {
+        List<Usuario> adminExists = usuarioRepository.existsByTipoUsuario("Admin");
+
+        if (adminExists.size()>0) {
+            return true;
+        }
+        return false;
+    }
+
     private boolean checkValid(Usuario u) {
         if(usuarioRepository.existsByEmail(u.getEmail())){
             return false;

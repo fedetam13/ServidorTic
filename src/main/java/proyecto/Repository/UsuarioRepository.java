@@ -25,4 +25,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario,String> {
 
     Usuario getUsuarioByIdUsuario(int id);
 
+    List<Usuario> existsByTipoUsuario(String tipo);
+
 }

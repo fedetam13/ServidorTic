@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="creacion de vuelos(casi) y aviones">
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aerolinea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aerolinea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/AerolineasPresentes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/AerolineasPresentes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aeropuerto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aeropuerto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Avion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Avion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" afterDir="false" />
+    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AeropuertoRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AeropuertoRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/UsuarioRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/UsuarioRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/AeropuertoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/AeropuertoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/AvionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/AvionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/UsuarioService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,12 +25,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="demo" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -94,34 +80,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Feder/OneDrive/Documentos/TicLocal/ProyectoTic-ServidorTIC/ProyectoTic-ServidorTIC&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9de0862494cc3aa211be7c76dc6b547b&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Feder/OneDrive/Documentos/TicSolito/ProyectoTic-ServidorTIC",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.general",
+    "spring.configuration.checksum": "9de0862494cc3aa211be7c76dc6b547b",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;HTTP Request&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "HTTP Request"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunDashboard">
     <option name="excludedTypes">
       <set>
@@ -187,6 +173,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694099951708</updated>
       <workItem from="1698348783473" duration="5501000" />
+      <workItem from="1699746868958" duration="3226000" />
     </task>
     <task id="LOCAL-00001" summary="log in">
       <created>1694108233644</created>
@@ -500,7 +487,21 @@
       <option name="project" value="LOCAL" />
       <updated>1698183954866</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Commit">
+      <created>1699747111217</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1699747111217</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Commit">
+      <created>1699747161489</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1699747161489</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="nueva jerarquia" />
     <MESSAGE value="empleaso diferenciados" />
     <MESSAGE value="empleados creacion, faltan resricciones" />
     <MESSAGE value="relacion pasajero - vuelo" />
@@ -560,7 +560,8 @@
     <MESSAGE value="cambios" />
     <MESSAGE value="rest controller p1" />
     <MESSAGE value="avances API Usuario y Aeropuerto" />
-    <option name="LAST_COMMIT_MESSAGE" value="avances API Usuario y Aeropuerto" />
+    <MESSAGE value="Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
