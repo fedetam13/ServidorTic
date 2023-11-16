@@ -10,6 +10,7 @@ import proyecto.Clases.Vuelo;
 import proyecto.Services.AeropuertoService;
 import proyecto.Services.VueloService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -71,10 +72,26 @@ public class VueloRestController {
 
         v.setAprovacionPartida(vuelo.getAprovacionPartida());
         v.setAprovacionArribo(vuelo.getAprovacionArribo());
+        v.setPueretaDeEmbarque(vuelo.getPueretaDeEmbarque());
+        v.setPuertaDeArribo(vuelo.getPuertaDeArribo());
 
         if(vueloService.agregarVuelo(v)) {
             return ResponseEntity.ok(v);
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+    @GetMapping("/getPuertasOcupadasArribo")
+    ResponseEntity<List<Integer>> puertasOcupadasArribo(@RequestParam(name="idVuelo")int idVuelo){
+        List<Integer> puertasOcupadas = vueloService.getPuertasOcupadasArribo(idVuelo);
+
+        return ResponseEntity.ok(puertasOcupadas);
+    }
+
+    @GetMapping("/getPuertasOcupadasPartida")
+    ResponseEntity<List<Integer>> puertasOcupadaspartida(@RequestParam(name="idVuelo")int idVuelo){
+        List<Integer> puertasOcupadas = vueloService.getPuertasOcupadasPartida(idVuelo);
+
+        return ResponseEntity.ok(puertasOcupadas);
     }
 }

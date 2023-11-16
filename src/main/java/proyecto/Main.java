@@ -31,7 +31,8 @@ public class Main {
         usuario.setPassword("admin");
         usuario.setTipoUsuario("Admin");
 
-        if (context != null && context.getBean(Main.class) != null) {
+        if (context != null) {
+            context.getBean(Main.class);
             Main mainInstance = context.getBean(Main.class);
             mainInstance.usuarioService.addUser(usuario);
         }

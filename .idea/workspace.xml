@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="Automatic Admin Creation">
+    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="Acept/Reject/Update flights">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aeropuerto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Aeropuerto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/VueloRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/VueloRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/UsuarioService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/VueloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/VueloService.java" afterDir="false" />
@@ -28,7 +28,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="demo" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -83,34 +88,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Feder/OneDrive/Documentos/TicSolito/ProyectoTic-ServidorTIC",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.general",
-    "spring.configuration.checksum": "9de0862494cc3aa211be7c76dc6b547b",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Feder/OneDrive/Documentos/TicSolito/ProyectoTic-ServidorTIC&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;9de0862494cc3aa211be7c76dc6b547b&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "HTTP Request"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;HTTP Request&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunDashboard">
     <option name="excludedTypes">
       <set>
@@ -119,9 +124,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.Main">
-    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -129,6 +131,9 @@
       <method v="2" />
     </configuration>
     <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" requestIdentifier="#4" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -159,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="HTTP Request.generated-requests | #4" />
         <item itemvalue="HTTP Request.generated-requests | #3" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
-        <item itemvalue="HTTP Request.All in generated-requests" />
-        <item itemvalue="Spring Boot.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +181,8 @@
       <option name="presentableId" value="Default" />
       <updated>1694099951708</updated>
       <workItem from="1698348783473" duration="5501000" />
-      <workItem from="1699746868958" duration="11350000" />
+      <workItem from="1699746868958" duration="11634000" />
+      <workItem from="1700139421632" duration="8201000" />
     </task>
     <task id="LOCAL-00001" summary="log in">
       <created>1694108233644</created>
@@ -511,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699750203836</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Acept/Reject/Update flights">
+      <created>1699767138006</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1699767138006</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +559,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="empleados creacion, faltan resricciones" />
     <MESSAGE value="relacion pasajero - vuelo" />
     <MESSAGE value="arreglos de la conexion a la base de datos, falta ver lo de las aerolineas presente" />
     <MESSAGE value="e" />
@@ -571,7 +583,19 @@
     <MESSAGE value="avances API Usuario y Aeropuerto" />
     <MESSAGE value="Commit" />
     <MESSAGE value="Automatic Admin Creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Automatic Admin Creation" />
+    <MESSAGE value="Acept/Reject/Update flights" />
+    <option name="LAST_COMMIT_MESSAGE" value="Acept/Reject/Update flights" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/proyecto/Services/VueloService.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

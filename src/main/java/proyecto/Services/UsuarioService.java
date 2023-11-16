@@ -19,6 +19,7 @@ public class UsuarioService {
             if(usuarioRepository.count()!=0){
                 u.setIdUsuario(usuarioRepository.maxId()+1);}
             else{u.setIdUsuario(1);}
+            u.setEmail(u.getEmail().toLowerCase());
             usuarioRepository.save(u);
             return true;
         }

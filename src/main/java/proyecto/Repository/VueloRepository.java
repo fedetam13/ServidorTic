@@ -19,4 +19,8 @@ public interface VueloRepository extends JpaRepository<Vuelo,Integer>{
 
     Vuelo getVueloByIdVuelo(int id);
 
+    List<Vuelo> getVuelosByIdAeropuertoArribo(int id);
+
+    List<Vuelo> getVuelosByIdAeropuertoPartida(int id);
+
 }

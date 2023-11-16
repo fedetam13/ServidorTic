@@ -26,10 +26,6 @@ public class AvionRestController {
     ResponseEntity<List<Avion>> getAvionesByNombreAerolinea(@RequestParam(name = "nombreAerolinea")String nombreAerolinea){
         List<Avion> matchingAviones = avionService.getAvionesByNombreAerolinea(nombreAerolinea);
 
-        if(matchingAviones.size()>0){
-            return ResponseEntity.ok(matchingAviones);
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(matchingAviones);
     }
 }
