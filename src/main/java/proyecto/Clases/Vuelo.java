@@ -25,10 +25,10 @@ public class Vuelo {
     private boolean estaAtrasado;
     private int pueretaDeEmbarque;
     private int puertaDeArribo;
-    private String aprovacionDeVuelo; //LA IDEA QUE SEA, Pendiente, Aprovado, Rechazado
     private String aprovacionPartida; // (-,A,R)
     private String aprovacionArribo; // (-,A,R)
 
+    private int ocupados;
 
     private int idAeropuertoPartida;
 

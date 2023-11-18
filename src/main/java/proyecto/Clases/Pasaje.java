@@ -16,16 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Pasaje {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int idPasaje;
-    private String asiento;
-    private String clase;
-
-    @ManyToOne
-    @JoinColumn(name = "id_vuelo")
-    private Vuelo vuelo;
-
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    private int idVuelo;
+    private int idUsuario;
 }

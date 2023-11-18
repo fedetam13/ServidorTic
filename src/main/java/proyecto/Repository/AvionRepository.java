@@ -11,4 +11,6 @@ public interface AvionRepository extends JpaRepository<Avion, Integer>{
     boolean existsByMatricula(String matricula);
 
     List<Avion> getAvionsByNombreAerolinea(String nombreAerolinea);
+
+    Avion getAvionByMatricula(String matricula);
 }

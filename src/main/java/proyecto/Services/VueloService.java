@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class VueloService {
@@ -70,17 +71,33 @@ public class VueloService {
         for(Vuelo v : allVuelos){
             for(Vuelo u : allVuelos){
                 if(v.getPuertaDeArribo()==u.getPuertaDeArribo()&&v.getIdVuelo()!=u.getIdVuelo()){
-                    if(v.getHoraDeArribo().isBefore(u.getHoraDeArribo())){
+                    if(!v.getHoraDeArribo().isAfter(u.getHoraDeArribo())){
 
                         LocalDateTime finishV = v.getHoraDeArribo().plusMinutes(30);
                         LocalDateTime finishVuelo = vuelo.getHoraDeArribo().plusMinutes(30);
 
-                        if(!(finishV.isBefore(vuelo.getHoraDeArribo())&&finishVuelo.isBefore(u.getHoraDeArribo()))){
+                        if(finishV.isAfter(vuelo.getHoraDeArribo()) || finishVuelo.isAfter(u.getHoraDeArribo())){
                             puertasOcupadas.add(v.getPuertaDeArribo());
                         }
                     }
                 }
             }
+            if(!v.getHoraDeArribo().isAfter(vuelo.getHoraDeArribo())){
+                LocalDateTime finishV = v.getHoraDeArribo().plusMinutes(30);
+
+                if(!vuelo.getHoraDeArribo().isAfter(finishV)){
+                    puertasOcupadas.add(v.getPuertaDeArribo());
+                }
+            }
+
+            LocalDateTime finishVuelo = vuelo.getHoraDeArribo().plusMinutes(30);
+
+            if(finishVuelo.isAfter(v.getHoraDeArribo())){
+                if(finishVuelo.isBefore(v.getHoraDeArribo())){
+                    puertasOcupadas.add(v.getPuertaDeArribo());
+                }
+            }
+
         }
 
         return puertasOcupadas;
@@ -93,26 +110,57 @@ public class VueloService {
         Vuelo vuelo = vueloRepository.getVueloByIdVuelo(idVuelo);
         List<Vuelo> allVuelos = vueloRepository.getVuelosByAprovacionPartidaAndIdAeropuertoPartida("A",vuelo.getIdAeropuertoPartida());
 
-
-
-
         for(Vuelo u : allVuelos){
             for(Vuelo v : allVuelos){
                 if(v.getPueretaDeEmbarque()==u.getPueretaDeEmbarque()&&v.getIdVuelo()!=u.getIdVuelo()){
-                    if(v.getHoraDePartida().isBefore(u.getHoraDePartida())){
+                    if(!v.getHoraDePartida().isAfter(u.getHoraDePartida())){
 
                         LocalDateTime finishV = v.getHoraDePartida().plusMinutes(60);
                         LocalDateTime finishVuelo = vuelo.getHoraDePartida().plusMinutes(60);
 
-                        if(!(finishV.isBefore(vuelo.getHoraDePartida())&&finishVuelo.isBefore(u.getHoraDePartida()))){
+                        if(finishV.isAfter(vuelo.getHoraDePartida()) || finishVuelo.isBefore(u.getHoraDePartida())){
                             puertasOcupadas.add(v.getPueretaDeEmbarque());
+
                         }
                     }
                 }
             }
+
+
+            if(!u.getHoraDePartida().isAfter(vuelo.getHoraDePartida())){
+                LocalDateTime finishU = u.getHoraDePartida().plusMinutes(60);
+
+                if(!vuelo.getHoraDePartida().isAfter(finishU)){
+                    puertasOcupadas.add(u.getPueretaDeEmbarque());
+                    continue;
+                }
+            }
+
+            LocalDateTime finishVuelo = vuelo.getHoraDePartida().plusMinutes(60);
+
+            if(finishVuelo.isAfter(u.getHoraDePartida())){
+                if(finishVuelo.isBefore(u.getHoraDePartida())){
+                    puertasOcupadas.add(u.getPueretaDeEmbarque());
+                }
+            }
+
+
         }
 
         return puertasOcupadas;
+    }
+
+    public List<Vuelo> getVuelosFromTo(int idOrigen, int idDestino) {
+        List<Vuelo> vuelosPosibles = vueloRepository.getVuelosByIdAeropuertoPartidaAndIdAeropuertoArribo(idOrigen, idDestino);
+        List<Vuelo> vuelosAceptados = new ArrayList<>();
+
+        for(Vuelo v : vuelosPosibles){
+            if(Objects.equals(v.getAprovacionPartida(),"A") && Objects.equals(v.getAprovacionArribo(),"A")){
+                vuelosAceptados.add(v);
+            }
+        }
+
+        return vuelosAceptados;
     }
 
 }

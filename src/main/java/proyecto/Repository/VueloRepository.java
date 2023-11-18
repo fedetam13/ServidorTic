@@ -2,6 +2,7 @@ package proyecto.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import proyecto.Clases.Vuelo;
 
@@ -22,5 +23,7 @@ public interface VueloRepository extends JpaRepository<Vuelo,Integer>{
     List<Vuelo> getVuelosByIdAeropuertoArribo(int id);
 
     List<Vuelo> getVuelosByIdAeropuertoPartida(int id);
+
+    List<Vuelo> getVuelosByIdAeropuertoPartidaAndIdAeropuertoArribo(int idAP,int idAA);
 
 }

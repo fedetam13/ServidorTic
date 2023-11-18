@@ -27,4 +27,8 @@ public class AvionService {
     public List<Avion> getAvionesByNombreAerolinea(String nombreAerolinea) {
         return avionRepository.getAvionsByNombreAerolinea(nombreAerolinea);
     }
+
+    public Avion getAvionByMatricula(String matricula) {
+        return avionRepository.getAvionByMatricula(matricula);
+    }
 }

@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="Acept/Reject/Update flights">
+    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="Set puertas (faltan checks)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Pasaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Pasaje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Pasajeros.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AeropuertoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AeropuertoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AvionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AvionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/PasajeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/PasajeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/VueloRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/VueloRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AeropuertoRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AeropuertoRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/PasajeRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/PasajeRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/AeropuertoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/AeropuertoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/AvionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/AvionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/PasajeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/PasajeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/VueloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/VueloService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,16 +133,16 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.Main">
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" requestIdentifier="#4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="5" requestIdentifier="#5" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="6" requestIdentifier="#6" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" requestIdentifier="#7" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -164,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests | #7" />
+        <item itemvalue="HTTP Request.generated-requests | #6" />
+        <item itemvalue="HTTP Request.generated-requests | #5" />
         <item itemvalue="Spring Boot.Main" />
         <item itemvalue="HTTP Request.generated-requests | #4" />
-        <item itemvalue="HTTP Request.generated-requests | #3" />
-        <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +191,8 @@
       <updated>1694099951708</updated>
       <workItem from="1698348783473" duration="5501000" />
       <workItem from="1699746868958" duration="11634000" />
-      <workItem from="1700139421632" duration="8201000" />
+      <workItem from="1700139421632" duration="9178000" />
+      <workItem from="1700319769008" duration="12525000" />
     </task>
     <task id="LOCAL-00001" summary="log in">
       <created>1694108233644</created>
@@ -524,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699767138006</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Set puertas (faltan checks)">
+      <created>1700152654369</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1700152654370</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +576,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="relacion pasajero - vuelo" />
     <MESSAGE value="arreglos de la conexion a la base de datos, falta ver lo de las aerolineas presente" />
     <MESSAGE value="e" />
     <MESSAGE value="e2" />
@@ -584,18 +600,8 @@
     <MESSAGE value="Commit" />
     <MESSAGE value="Automatic Admin Creation" />
     <MESSAGE value="Acept/Reject/Update flights" />
-    <option name="LAST_COMMIT_MESSAGE" value="Acept/Reject/Update flights" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/proyecto/Services/VueloService.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Set puertas (faltan checks)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set puertas (faltan checks)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

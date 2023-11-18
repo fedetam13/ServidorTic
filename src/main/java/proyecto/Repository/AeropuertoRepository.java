@@ -18,4 +18,6 @@ public interface AeropuertoRepository extends JpaRepository<Aeropuerto,Integer> 
     Integer maxId();
 
     Aeropuerto getAeropuertoByNombre(String nombreAeropuerto);
+
+    Aeropuerto getAeropuertoByIdAeropuerto(int id);
 }

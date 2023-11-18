@@ -6,8 +6,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import proyecto.Clases.Aeropuerto;
+import proyecto.Clases.Avion;
 import proyecto.Clases.Vuelo;
 import proyecto.Services.AeropuertoService;
+import proyecto.Services.AvionService;
 import proyecto.Services.VueloService;
 
 import java.util.ArrayList;
@@ -21,6 +23,9 @@ public class VueloRestController {
     private VueloService vueloService;
     @Autowired
     private AeropuertoService aeropuertoService;
+    @Autowired
+    private AvionService avionService;
+
 
     @PostMapping("/post")
     ResponseEntity<Vuelo> addVuelo(@RequestBody Vuelo vuelo){
@@ -93,5 +98,26 @@ public class VueloRestController {
         List<Integer> puertasOcupadas = vueloService.getPuertasOcupadasPartida(idVuelo);
 
         return ResponseEntity.ok(puertasOcupadas);
+    }
+
+    @GetMapping("/getVuelosAceptadosFromTo")
+    ResponseEntity<List<Vuelo>> getVuelosFromTo(@RequestParam(name = "aOrigen")int idOrigen,@RequestParam(name = "aDestino")int idDestino){
+        List<Vuelo> vuelosFromTo = vueloService.getVuelosFromTo(idOrigen,idDestino);
+
+        return ResponseEntity.ok(vuelosFromTo);
+    }
+
+    @PutMapping("/addCounter")
+    ResponseEntity<Vuelo> addCounter(@RequestParam(name = "idVuelo")int idVuelo){
+        Vuelo v = vueloService.getVueloById(idVuelo);
+        Avion a = avionService.getAvionByMatricula(v.getMatriculaAvion());
+
+        if(v.getOcupados()<a.getCapacidad()){
+            v.setOcupados(v.getOcupados()+1);
+            vueloService.agregarVuelo(v);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
+
     }
 }

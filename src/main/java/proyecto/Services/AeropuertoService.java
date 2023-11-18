@@ -56,4 +56,8 @@ public class AeropuertoService {
     public Aeropuerto getAeropuertoByNombre(String nombreAeropuerto){
         return aeropuertoRepository.getAeropuertoByNombre(nombreAeropuerto);
     }
+
+    public Aeropuerto getAeropuertoById(int idAeropuerto) {
+        return aeropuertoRepository.getAeropuertoByIdAeropuerto(idAeropuerto);
+    }
 }

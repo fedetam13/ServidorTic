@@ -54,4 +54,12 @@ public class AeropuertoRestController {
         }
     }
 
+    @GetMapping("/getById")
+    ResponseEntity<Aeropuerto> getById(@RequestParam(name = "id")int idAeropuerto){
+        Aeropuerto a = aeropuertoService.getAeropuertoById(idAeropuerto);
+        if(a==null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(a);
+    }
 }

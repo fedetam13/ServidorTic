@@ -28,4 +28,11 @@ public class AvionRestController {
 
         return ResponseEntity.ok(matchingAviones);
     }
+
+    @GetMapping("/getByMatricula")
+    ResponseEntity<Avion> getAvionByMatricula(@RequestParam(name = "matricula")String matricula){
+        Avion a = avionService.getAvionByMatricula(matricula);
+
+        return ResponseEntity.ok(a);
+    }
 }
