@@ -37,33 +37,21 @@ public class UsuarioRestController {
     ResponseEntity<List<Usuario>> getUsuariosPorNombre(@RequestParam(name = "nombre")String nombre){
         List<Usuario> matchingUsers = usuarioService.getUsersByName(nombre);
 
-        if(matchingUsers.size()>0){
-            return ResponseEntity.ok(matchingUsers);
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(matchingUsers);
     }
 
     @GetMapping("/getByEmail")
     ResponseEntity<Usuario> getUsuarioPorEmail(@RequestParam(name = "email") String email){
         Usuario u = usuarioService.getUserByEmail(email);
 
-        if(u==null){
-            return ResponseEntity.notFound().build();
-        }else{
-            return ResponseEntity.ok(u);
-        }
+        return ResponseEntity.ok(u);
     }
 
     @GetMapping("/getById")
     ResponseEntity<Usuario> getUsuarioPorId(@RequestParam(name = "idUsuario") int idUsuario){
         Usuario u = usuarioService.getUserById(idUsuario);
 
-        if(u==null){
-            return ResponseEntity.notFound().build();
-        }else{
-            return ResponseEntity.ok(u);
-        }
+        return ResponseEntity.ok(u);
     }
 
 

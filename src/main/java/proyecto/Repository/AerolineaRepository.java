@@ -16,4 +16,6 @@ public interface AerolineaRepository extends JpaRepository<Aerolinea, Integer> {
     Integer maxId();
 
     Aerolinea getAerolineaByIdAerolinea(int idAerolinea);
+
+    Aerolinea getAerolineaByNombre(String nombre);
 }

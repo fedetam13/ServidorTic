@@ -4,23 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="Set puertas (faltan checks)">
+    <list default="true" id="17109fb2-6b65-4b68-b4dd-57fadcb50b88" name="Changes" comment="ADD: asignar puertas, reservar vuelos, contador de pasajeros en vuelo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Pasaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Pasaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Pasajeros.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Clases/Vuelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/launchDB.bat" beforeDir="false" afterPath="$PROJECT_DIR$/database/launchDB.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AerolineaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AerolineaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AeropuertoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AeropuertoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AvionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/AvionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/PasajeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/PasajeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Repository/VueloRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Repository/VueloRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AerolineaRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AerolineaRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AeropuertoRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AeropuertoRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/AvionRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/PasajeRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/PasajeRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/UsuarioRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/UsuarioRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/RestControllers/VueloRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/AerolineaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/AerolineaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/AeropuertoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/AeropuertoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/AvionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/AvionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/PasajeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/PasajeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Services/VueloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Services/VueloService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,14 +186,8 @@
       <workItem from="1698348783473" duration="5501000" />
       <workItem from="1699746868958" duration="11634000" />
       <workItem from="1700139421632" duration="9178000" />
-      <workItem from="1700319769008" duration="12525000" />
-    </task>
-    <task id="LOCAL-00001" summary="log in">
-      <created>1694108233644</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1694108233644</updated>
+      <workItem from="1700319769008" duration="13211000" />
+      <workItem from="1700401728539" duration="8161000" />
     </task>
     <task id="LOCAL-00002" summary="DBControler">
       <created>1694108466094</created>
@@ -541,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700152654370</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="ADD: asignar puertas, reservar vuelos, contador de pasajeros en vuelo">
+      <created>1700341305086</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1700341305086</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +571,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="arreglos de la conexion a la base de datos, falta ver lo de las aerolineas presente" />
     <MESSAGE value="e" />
     <MESSAGE value="e2" />
     <MESSAGE value="agregacionDelSceneBuilder" />
@@ -601,7 +595,8 @@
     <MESSAGE value="Automatic Admin Creation" />
     <MESSAGE value="Acept/Reject/Update flights" />
     <MESSAGE value="Set puertas (faltan checks)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set puertas (faltan checks)" />
+    <MESSAGE value="ADD: asignar puertas, reservar vuelos, contador de pasajeros en vuelo" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD: asignar puertas, reservar vuelos, contador de pasajeros en vuelo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

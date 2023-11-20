@@ -59,12 +59,8 @@ public class VueloRestController {
     ResponseEntity<Vuelo> updateVuelo(@RequestParam(name="idVuelo")int idVuelo){
         Vuelo v = vueloService.getVueloById(idVuelo);
 
-        if(v==null){
-            return ResponseEntity.notFound().build();
-        }
-        else{
-            return ResponseEntity.ok(v);
-        }
+        return ResponseEntity.ok(v);
+
     }
 
     @PutMapping("/update")

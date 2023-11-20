@@ -60,4 +60,8 @@ public class AeropuertoService {
     public Aeropuerto getAeropuertoById(int idAeropuerto) {
         return aeropuertoRepository.getAeropuertoByIdAeropuerto(idAeropuerto);
     }
+
+    public Aeropuerto getByIata(String iata) {
+        return aeropuertoRepository.getAeropuertoByIata(iata);
+    }
 }

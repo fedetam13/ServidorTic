@@ -48,4 +48,8 @@ public class AerolineaService {
 
         return aerolineaRepository.getAerolineaByIdAerolinea(idAerolinea);
     }
+
+    public Aerolinea getAerolineaByNombre(String nombre) {
+        return aerolineaRepository.getAerolineaByNombre(nombre);
+    }
 }

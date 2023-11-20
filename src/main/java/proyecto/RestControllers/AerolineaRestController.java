@@ -26,11 +26,14 @@ public class AerolineaRestController {
     ResponseEntity<Aerolinea> getAerolineaById(@RequestParam(name="idAerolinea")int idAerolinea){
         Aerolinea a = aerolineaService.getAerolineaById(idAerolinea);
 
-        if(a!=null){
-            return ResponseEntity.ok(a);
-        }
-        else{
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(a);
+
+    }
+
+    @GetMapping("/getByNombre")
+    ResponseEntity<Aerolinea> getAerolineaByNombre(@RequestParam(name = "nombre")String nombre){
+        Aerolinea a = aerolineaService.getAerolineaByNombre(nombre);
+
+        return ResponseEntity.ok(a);
     }
 }

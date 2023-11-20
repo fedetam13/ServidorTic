@@ -25,41 +25,35 @@ public class AeropuertoRestController {
     ResponseEntity<List<Aeropuerto>> getAeropuertosPorUbicacion(@RequestParam(name = "ubicacion")String ubicacion){
         List<Aeropuerto> matchingAirports = aeropuertoService.getAeropuertosByUbicacion(ubicacion);
 
-        if(matchingAirports.size()>0){
-            return ResponseEntity.ok(matchingAirports);
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(matchingAirports);
+
     }
 
     @GetMapping("/getByNombre")
     ResponseEntity<Aeropuerto> getAeropuertosPorNombre(@RequestParam(name = "nombre")String nombre){
         Aeropuerto a = aeropuertoService.getAeropuertoByNombre(nombre);
 
-        if(a!=null){
-            return ResponseEntity.ok(a);
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(a);
     }
 
     @GetMapping("/getAll")
     ResponseEntity<List<Aeropuerto>> getAllAeropuertos(){
         List<Aeropuerto> aeropuertos = aeropuertoService.getAllAeropuertos();
 
-        if(aeropuertos.size()>0){
-            return ResponseEntity.ok(aeropuertos);
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(aeropuertos);
     }
 
     @GetMapping("/getById")
     ResponseEntity<Aeropuerto> getById(@RequestParam(name = "id")int idAeropuerto){
         Aeropuerto a = aeropuertoService.getAeropuertoById(idAeropuerto);
-        if(a==null){
-            return ResponseEntity.notFound().build();
-        }
+
+        return ResponseEntity.ok(a);
+    }
+
+    @GetMapping("/getByIata")
+    ResponseEntity<Aeropuerto> getByIata(@RequestParam(name = "iata")String iata){
+        Aeropuerto a = aeropuertoService.getByIata(iata);
+
         return ResponseEntity.ok(a);
     }
 }
